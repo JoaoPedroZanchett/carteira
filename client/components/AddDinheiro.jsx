@@ -1,4 +1,7 @@
 import React from 'react';
+import AddDinheiro from './AddDinheiro.jsx';
+import Navbar from './Navbar.jsx';
+import { BrowserRouter, Route, Link } from 'react-router-dom';
 
 export default React.createClass({
   getInitialState: function(){
@@ -9,21 +12,21 @@ export default React.createClass({
   mudarValor: function(e){
     this.setState({quantidade: e.target.value});
   },
-  mostrar: function() {
-    alert(this.state.quantidade);
-  },
   render: function(){
     return (
-      <div className="container">
-        <div className="row">
-          <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
+      <div>
+        <Navbar />
+        <div className="container row">
+          <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
+          <center><h5 className="green-text">Adicionar Receita</h5></center>
           <div className="input-field col s11">
-            <i className="small material-icons prefix light-blue-text">monetization_on</i>
+            <i className="small material-icons prefix green-text">monetization_on</i>
             <input defaultValue={this.state.quantidade} onChange={this.mudarValor} className="validate" type="number"></input>
-            <label>Valor Inicial</label>
           </div>
-          <div className="input-field col s6 offset-s3">
-            <a onClick={this.mostrar} className="waves-effect light-blue darken-4 btn s12"><i className="material-icons right">check</i>INICIAR</a>
+          <div className="input-field col s8 offset-s2">
+            <center>
+              <Link to={"/carteira/"+ (parseFloat(this.props.match.params.atual) + parseFloat(this.state.quantidade))} className="waves-effect green darken-4 btn s12"><i className="material-icons right">check</i>SALVAR</Link>
+            </center>
           </div>
         </div>
       </div>

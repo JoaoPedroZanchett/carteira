@@ -1,25 +1,21 @@
 import React from 'react';
 import AddDinheiro from './AddDinheiro.jsx';
+import Navbar from './Navbar.jsx';
+import { BrowserRouter, Route, Link } from 'react-router-dom';
+
 
 export default React.createClass({
     getInitialState: function(){
       return {
-        saldo: 0.00,
-        somar: 0,
-        diminuir: 0
+        saldo: parseFloat(this.props.match.params.valor),
+        motivosTotais: this.props.match.params.motivo
       }
-    },
-    somar: function(){
-      this.setState({somar: 1});
-    },
-    diminuir: function(){
-      this.state.saldo -= 1;
-      this.setState({saldo: this.state.saldo});
     },
     render: function(){
       return(
-        <div className="container">
-          <div>
+        <div>
+          <Navbar />
+          <div className="container">
             <div className="row">
               <center>
                   <br></br><br></br><br></br><br></br><br></br><br></br>
@@ -42,12 +38,13 @@ export default React.createClass({
                 <i className="large material-icons">menu</i>
               </a>
               <ul>
-                <li className="waves-effect waves-light"><a onClick={this.somar}><i className="material-icons">add</i></a></li>
-                <li className="waves-effect waves-light"><a onClick={this.diminuir}><i className="material-icons">remove</i></a></li>
+                <li className="waves-effect waves-light"><Link to={"/dinheiro/"+this.state.saldo}><i className="material-icons">add</i></Link></li>
+                <li className="waves-effect waves-light"><Link to={"/despesa/"+this.state.saldo}><i className="material-icons">remove</i></Link></li>
+                <li className="waves-effect waves-light"><Link to={"/motivos/"+this.state.saldo+"/"+this.state.motivosTotais}><i className="material-icons">check</i></Link></li>
               </ul>
             </div>
           </div>
-        )}
+          <input type="hidden" defaultValue={this.state.motivosTotais}></input>
       </div>
         );
     }
