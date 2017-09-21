@@ -2,13 +2,14 @@ import React from 'react';
 import AddDinheiro from './AddDinheiro.jsx';
 import Navbar from './Navbar.jsx';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
+import Carteira from './Carteira.jsx';
 
 
 export default React.createClass({
     getInitialState: function(){
       return {
-        saldo: parseFloat(this.props.match.params.valor),
-        motivosTotais: this.props.match.params.motivos
+        saldo: Carteira.saldo,
+        motivosTotais: ''
       }
     },
     render: function(){

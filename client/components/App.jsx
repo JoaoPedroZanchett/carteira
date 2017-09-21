@@ -3,6 +3,7 @@ import Navbar from './Navbar.jsx';
 import Central from './Central.jsx';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 
+import Carteira from './Carteira.jsx';
 
 export default React.createClass({
   getInitialState: function(){
@@ -11,7 +12,7 @@ export default React.createClass({
     }
   },
   mudarValor: function(e){
-    this.setState({valorInicial: e.target.value});
+    Carteira.saldo = e.target.valueAsNumber;
   },
 
   render: function(){
@@ -23,12 +24,12 @@ export default React.createClass({
               <br></br><br></br><br></br><br></br><br></br><br></br><br></br>
               <div className="input-field col s11">
                 <i className="small material-icons prefix light-green-text">monetization_on</i>
-                <input defaultValue={this.state.valorInicial} onChange={this.mudarValor} className="validate" type="number"></input>
+                <input defaultValue={this.state.valorInicial} onChange={this.mudarValor} className="validate" type="number" />
                 <label>Valor Inicial</label>
               </div>
               <div className="input-field col s8 offset-s2">
                 <center>
-                  <Link className="waves-effect red darken-4 btn" to={"/carteira/"+this.state.valorInicial+"/Início,"+this.state.valorInicial+","+new Date().toLocaleTimeString()} ><i className="material-icons right">check</i>INICIAR</Link>
+                  <Link className="waves-effect red darken-4 btn" to={"/carteira"} ><i className="material-icons right">check</i>INICIAR</Link>
                 </center>
               </div>
             </div>
