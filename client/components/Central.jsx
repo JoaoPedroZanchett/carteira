@@ -8,7 +8,7 @@ export default React.createClass({
     getInitialState: function(){
       return {
         saldo: parseFloat(this.props.match.params.valor),
-        motivosTotais: this.props.match.params.motivo
+        motivosTotais: this.props.match.params.motivos
       }
     },
     render: function(){
@@ -21,7 +21,7 @@ export default React.createClass({
                   <br></br><br></br><br></br><br></br><br></br><br></br>
                   <div className="card col s10  m4 offset-s1 offset-m4">
                       <br></br><br></br>
-                      <h5 className="red-text">S A L D O</h5>
+                      <h5 className="red-text">SALDO</h5>
                       {this.state.saldo < 0 ? (
                         <h4 className="red-text">R$ {this.state.saldo}</h4>
                       ) : this.state.saldo > 0 ? (
@@ -38,13 +38,12 @@ export default React.createClass({
                 <i className="large material-icons">menu</i>
               </a>
               <ul>
-                <li className="waves-effect waves-light"><Link to={"/dinheiro/"+this.state.saldo}><i className="material-icons">add</i></Link></li>
-                <li className="waves-effect waves-light"><Link to={"/despesa/"+this.state.saldo}><i className="material-icons">remove</i></Link></li>
+                <li className="waves-effect waves-light"><Link to={"/dinheiro/"+this.state.saldo+"/"+this.state.motivosTotais}><i className="material-icons">add</i></Link></li>
+                <li className="waves-effect waves-light"><Link to={"/despesa/"+this.state.saldo+"/"+this.state.motivosTotais}><i className="material-icons">remove</i></Link></li>
                 <li className="waves-effect waves-light"><Link to={"/motivos/"+this.state.saldo+"/"+this.state.motivosTotais}><i className="material-icons">check</i></Link></li>
               </ul>
             </div>
           </div>
-          <input type="hidden" defaultValue={this.state.motivosTotais}></input>
       </div>
         );
     }

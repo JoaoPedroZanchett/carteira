@@ -17,10 +17,10 @@ ReactDOM.render(
 	<BrowserRouter>
 		<Switch>
 			<Route exact path="/" component= {App}></Route>
-			<Route path="/carteira/:valor/:motivo" component= {Central}></Route>
-			<Route path="/dinheiro/:atual" component= {AddDinheiro}></Route>
-			<Route path="/despesa/:atual" component= {AddDespesa}></Route>
-			<Route path="/motivos/:atual/:dados" component= {Despesas}></Route>
+			<Route path="/carteira/:valor/:motivos" component= {Central}></Route>
+			<Route path="/dinheiro/:atual/:motivos" component= {AddDinheiro}></Route>
+			<Route path="/despesa/:atual/:motivos" component= {AddDespesa}></Route>
+			<Route path="/motivos/:atual/:motivos" component= {Despesas}></Route>
 		</Switch>
 
 	</BrowserRouter>,

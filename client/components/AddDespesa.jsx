@@ -1,5 +1,4 @@
 import React from 'react';
-import AddDinheiro from './AddDinheiro.jsx';
 import Navbar from './Navbar.jsx';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 
@@ -33,7 +32,7 @@ export default React.createClass({
           </div>
           <div className="input-field col s8 offset-s2">
             <center>
-              <Link to={"/carteira/"+ (parseFloat(this.props.match.params.atual) - parseFloat(this.state.quantidade)).toFixed(2)+"/"+this.state.motivo+","+this.state.quantidade} className="waves-effect red darken-4 btn s12"><i className="material-icons right">check</i>SALVAR</Link>
+              <Link to={"/carteira/"+ (parseFloat(this.props.match.params.atual) - parseFloat(this.state.quantidade)).toFixed(2)+"/"+this.props.match.params.motivos +";"+this.state.motivo+",-"+this.state.quantidade+"," + new Date().toLocaleTimeString()} className="waves-effect red darken-4 btn s12"><i className="material-icons right">check</i>SALVAR</Link>
             </center>
           </div>
         </div>

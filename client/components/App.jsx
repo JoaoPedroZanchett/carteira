@@ -28,7 +28,7 @@ export default React.createClass({
               </div>
               <div className="input-field col s8 offset-s2">
                 <center>
-                  <Link className="waves-effect red darken-4 btn" to={"/carteira/"+this.state.valorInicial+"/ , "} ><i className="material-icons right">check</i>INICIAR</Link>
+                  <Link className="waves-effect red darken-4 btn" to={"/carteira/"+this.state.valorInicial+"/Início,"+this.state.valorInicial+","+new Date().toLocaleTimeString()} ><i className="material-icons right">check</i>INICIAR</Link>
                 </center>
               </div>
             </div>
