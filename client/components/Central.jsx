@@ -39,9 +39,9 @@ export default React.createClass({
                 <i className="large material-icons">menu</i>
               </a>
               <ul>
-                <li className="waves-effect waves-light"><Link to={"/dinheiro/"+this.state.saldo+"/"+this.state.motivosTotais}><i className="material-icons">add</i></Link></li>
-                <li className="waves-effect waves-light"><Link to={"/despesa/"+this.state.saldo+"/"+this.state.motivosTotais}><i className="material-icons">remove</i></Link></li>
-                <li className="waves-effect waves-light"><Link to={"/motivos/"+this.state.saldo+"/"+this.state.motivosTotais}><i className="material-icons">check</i></Link></li>
+                <li className="waves-effect waves-light"><Link to={"/receita"}><i className="material-icons">add</i></Link></li>
+                <li className="waves-effect waves-light"><Link to={"/despesa"}><i className="material-icons">remove</i></Link></li>
+                <li className="waves-effect waves-light"><Link to={"/extrato"}><i className="material-icons">check</i></Link></li>
               </ul>
             </div>
           </div>

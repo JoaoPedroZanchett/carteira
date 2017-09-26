@@ -1,5 +1,6 @@
 import React from 'react';
 import Navbar from './Navbar.jsx';
+import Carteira from './Carteira.jsx';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 
 export default React.createClass({
@@ -14,6 +15,12 @@ export default React.createClass({
   },
   mudarFrase: function(e){
     this.setState({motivo: e.target.value});
+  },
+  enviar: function(){
+    var dados = {valor: "-R$"+parseFloat(this.state.quantidade), motivo: this.state.motivo, hora: new Date().toLocaleTimeString()};
+    Carteira.saldo -= parseFloat(this.state.quantidade);
+    Carteira.lancamentos.push(dados);
+    console.log(Carteira.lancamentos);
   },
   render: function(){
     return (
@@ -32,7 +39,7 @@ export default React.createClass({
           </div>
           <div className="input-field col s8 offset-s2">
             <center>
-              <Link to={"/carteira/"+ (parseFloat(this.props.match.params.atual) - parseFloat(this.state.quantidade)).toFixed(2)+"/"+this.props.match.params.motivos +";"+this.state.motivo+",-"+this.state.quantidade+"," + new Date().toLocaleTimeString()} className="waves-effect red darken-4 btn s12"><i className="material-icons right">check</i>SALVAR</Link>
+              <Link onClick={this.enviar} to="/carteira" className="waves-effect red darken-4 btn s12"><i className="material-icons right">check</i>SALVAR</Link>
             </center>
           </div>
         </div>

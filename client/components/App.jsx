@@ -24,7 +24,7 @@ export default React.createClass({
               <br></br><br></br><br></br><br></br><br></br><br></br><br></br>
               <div className="input-field col s11">
                 <i className="small material-icons prefix light-green-text">monetization_on</i>
-                <input defaultValue={this.state.valorInicial} onChange={this.mudarValor} className="validate" type="number" />
+                <input defaultValue={Carteira.saldo} onChange={this.mudarValor} className="validate" type="number" />
                 <label>Valor Inicial</label>
               </div>
               <div className="input-field col s8 offset-s2">

@@ -12,10 +12,10 @@ export default React.createClass({
           <br></br><br></br><br></br><br></br>
           <center><h5 className="green-text">EXTRATO DA CARTEIRA</h5></center>
           <br></br><br></br>
-          <DespesaCard dados={this.props.match.params.motivos}></DespesaCard>
+          <DespesaCard></DespesaCard>
           <div className="input-field col s8 offset-s2">
             <center>
-              <Link to={"/carteira/"+this.props.match.params.atual+"/"+this.props.match.params.motivos} className="waves-effect green darken-4 btn s12"><i className="material-icons right">check</i>VOLTAR</Link>
+              <Link to={"/carteira"} className="waves-effect green darken-4 btn s12"><i className="material-icons right">check</i>VOLTAR</Link>
             </center>
           </div>
         </div>
