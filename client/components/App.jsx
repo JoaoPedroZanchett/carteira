@@ -6,13 +6,18 @@ import { BrowserRouter, Route, Link } from 'react-router-dom';
 import Carteira from './Carteira.jsx';
 
 export default React.createClass({
+  contextTypes: {
+    router: React.PropTypes.object.isRequired
+  },
   getInitialState: function(){
     return {
       valorInicial: 0.00,
     }
   },
   mudarValor: function(e){
-    Carteira.saldo = e.target.valueAsNumber;
+    e.preventDefault();
+    Carteira.setSaldo(this.refs['valor'].valueAsNumber);
+    this.context.router.push("/carteira");
   },
 
   render: function(){
@@ -24,12 +29,14 @@ export default React.createClass({
               <br></br><br></br><br></br><br></br><br></br><br></br><br></br>
               <div className="input-field col s11">
                 <i className="small material-icons prefix light-green-text">monetization_on</i>
-                <input defaultValue={Carteira.saldo} onChange={this.mudarValor} className="validate" type="number" />
+                <input defaultValue={Carteira.getSaldo()} ref='valor' className="validate" type="number" />
                 <label>Valor Inicial</label>
               </div>
               <div className="input-field col s8 offset-s2">
                 <center>
-                  <Link className="waves-effect red darken-4 btn" to={"/carteira"} ><i className="material-icons right">check</i>INICIAR</Link>
+                  <button className="waves-effect red darken-4 btn" onClick={this.mudarValor}>
+                    <i className="material-icons right">check</i>INICIAR
+                  </button>
                 </center>
               </div>
             </div>

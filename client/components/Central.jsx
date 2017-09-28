@@ -8,7 +8,7 @@ import Carteira from './Carteira.jsx';
 export default React.createClass({
     getInitialState: function(){
       return {
-        saldo: Carteira.saldo,
+        saldo: Carteira.getSaldo(),
         motivosTotais: ''
       }
     },

@@ -17,10 +17,12 @@ export default React.createClass({
     this.setState({motivo: e.target.value});
   },
   enviar: function(){
-    var dados = {valor: "R$"+parseFloat(this.state.quantidade), motivo: this.state.motivo, hora: new Date().toLocaleTimeString()};
-    Carteira.saldo += parseFloat(this.state.quantidade);
-    Carteira.lancamentos.push(dados);
-    console.log(Carteira.lancamentos);
+      Carteira.addLancamento({
+        valor: parseFloat(this.state.quantidade),
+        motivo: this.state.motivo,
+        hora: new Date().toLocaleTimeString(),
+      });
+      console.log(Carteira.getLancamentos());
   },
   render: function(){
     return (
